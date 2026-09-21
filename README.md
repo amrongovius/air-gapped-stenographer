@@ -271,6 +271,10 @@ No secrets are stored anywhere in this project. A few things worth knowing befor
 - **The local API has no login and must stay on localhost.** `llama-server` (used internally by `dictate.sh`) has no authentication at all. It's launched bound to `127.0.0.1` only, so nothing else on your network can reach it as shipped — don't add a `--host 0.0.0.0` or port-forward it without adding your own auth in front of it.
 - **Pin what you build.** The setup step downloads and compiles code from third parties — pin to a tagged release rather than `main`, as shown above, rather than trusting a constantly-moving branch.
 
+## A note on automation
+
+Every step above is a plain shell command, so if you'd rather not type or copy/paste them by hand, this guide can be handed to a coding agent to run over SSH instead. Two moments still need a human: Step 1's `xcode-select` GUI dialog, and the `sudo` password prompts (Steps 2 and 5).
+
 ## Credits & attribution
 
 This project is a thin layer of scripts (and a lot of testing) around other people's work, and wouldn't exist without it:
