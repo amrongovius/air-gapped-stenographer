@@ -34,19 +34,19 @@ Voice Memos (.m4a), or any audio file
         │  you drag it into ~/Stenographer/inbox — that's the only step you do
         ▼
 ┌─────────────────────┐
-│   queue_watcher.sh   │   woken by launchd: instantly on file arrival,
-└──────────┬───────────┘   and every 120s regardless, as a safety net
+│   queue_watcher.sh  │   woken by launchd: instantly on file arrival,
+└──────────┬──────────┘   and every 120s regardless, as a safety net
            │  claims the file, calls dictate.sh
            ▼
 ┌───────────────┐        ┌────────────────────┐
-│    ffmpeg      │──────▶│    whisper.cpp       │   audio → transcript
-│ (→ 16kHz WAV)  │        │   (whisper-cli)      │
+│    ffmpeg     │──────▶ │    whisper.cpp     │   audio → transcript
+│ (→ 16kHz WAV) │        │   (whisper-cli)    │
 └───────────────┘        └──────────┬─────────┘
                                      │ transcript.txt
                                      ▼
                          ┌────────────────────┐
-                         │     llama.cpp        │   transcript → structured
-                         │   (llama-server)     │   Markdown note
+                         │     llama.cpp      │   transcript → structured
+                         │   (llama-server)   │   Markdown note
                          └──────────┬─────────┘
                                     ▼
                   ~/Stenographer/notes/*.md
