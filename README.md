@@ -22,7 +22,7 @@ You record (or already have) a voice memo. This pipeline transcribes it and orga
 
 Some recordings shouldn't leave your machine — a journal entry, a family story, a meeting with sensitive information, or the kernel of a truly original idea. Send that audio to a cloud transcription or AI service and it's on someone else's servers, under someone else's retention policy, whatever the fine print says.
 
-It was also built deliberately to run on the old consumer tech people already have sitting at home. Mainstream local-AI tooling is moving the opposite direction: Ollama requires macOS 14 (Sonoma) or later; a 2017 Intel MacBook Pro tops out at macOS 13. Homebrew's installer now refuses fresh installs on any Intel Mac at all. Both changes happened within about a week of each other, in September 2026.
+It was also built deliberately to run on the old consumer tech people already have sitting at home. Mainstream local-AI tooling is moving the opposite direction: Ollama requires macOS 14 (Sonoma) or later; a 2017 Intel MacBook Air tops out at macOS 13. Homebrew's installer now refuses fresh installs on any Intel Mac at all. Both changes happened within about a week of each other, in September 2026.
 
 This guide builds `whisper.cpp` and `llama.cpp` from source, with Metal GPU support turned off, because that's what actually works on old Intel hardware.
 
@@ -64,7 +64,7 @@ The audio is processed **one file at a time**, oldest first, however many are wa
 
 | | Tested | Notes |
 |---|---|---|
-| Mac | 2017 Intel MacBook Pro (Intel x86_64) | Should work on any Intel Mac; Apple Silicon Macs can follow this guide too (skip the Intel-specific steps) but haven't been tested by this project yet — if you try it, an issue report is welcome |
+| Mac | 2017 Intel MacBook Air (Intel x86_64) | Should work on any Intel Mac; Apple Silicon Macs can follow this guide too (skip the Intel-specific steps) but haven't been tested by this project yet — if you try it, an issue report is welcome |
 | macOS | 12.7.6 Monterey | Likely fine on 11 (Big Sur) or later; not verified below Monterey |
 | RAM | 8GB | Workable at 8GB; watch Activity Monitor on long recordings (see [Known limits](#known-limits)) |
 | CPU | Dual-core Intel i7 | GPU acceleration (Metal) is deliberately **disabled** — required on some older Intel Macs, which can kernel-panic with it left on |
