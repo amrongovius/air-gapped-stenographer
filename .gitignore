@@ -1,0 +1,16 @@
+# macOS 
+.DS_Store 
+
+# Never publish real recordings, transcripts, or logs 
+*.wav 
+*.m4a 
+*.mp3 
+*.mp4 
+inbox/ 
+processing/ 
+archive/ 
+failed/ 
+notes/ 
+logs/ 
+
+# Local overrides, if you ever add any *.local

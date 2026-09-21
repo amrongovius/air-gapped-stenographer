@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Template only: fill in the __PLACEHOLDER__ paths for your Mac (see
+  README.md) before copying this into ~/Library/LaunchAgents/.
+
+  Runs queue_watcher.sh two ways: instantly when files change in the inbox
+  (WatchPaths), and again every 120 seconds regardless, as a safety net in
+  case a launchd file-change notification gets missed or coalesced with
+  another one arriving close together. queue_watcher.sh is safe to run
+  repeatedly -- it just logs "No files waiting" and exits if there's
+  nothing to do.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stenographer.watcher</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>__STENO_BIN__/queue_watcher.sh</string>
+    </array>
+    <key>WatchPaths</key>
+    <array>
+        <string>__STENO_INBOX__</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>120</integer>
+    <key>StandardOutPath</key>
+    <string>__STENO_LOGS__/launchd_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>__STENO_LOGS__/launchd_stderr.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
